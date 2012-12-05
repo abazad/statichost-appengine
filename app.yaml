@@ -1,0 +1,19 @@
+application: rsa-pki
+version: 7
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /favicon\.ico
+  mime_type: image/x-icon
+  static_files: favicon.ico
+  upload: favicon\.ico
+  
+- url: /(.*\.(gif|png|jpg|ico|js|css|txt))
+  static_files: \1
+  upload: (.*\.(gif|png|jpg|ico|js|css|txt))
+
+- url: .*
+  script: main.app
